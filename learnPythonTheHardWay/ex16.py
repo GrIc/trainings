@@ -13,7 +13,8 @@ print "Opening the file..."
 target = open(filename, 'w')
 
 print "Truncating the file. Goodbye !"
-target.truncate()
+#The truncate is unecessary because we open the file in 'write' mode
+#target.truncate()
 
 print "Now I'm going to ask you for three lines."
 
@@ -22,13 +23,8 @@ line2 = raw_input("line2: ")
 line3 = raw_input("line3: ")
 
 print "I'm going to write these lines to the file."
-
-target.write(line1)
-target.write("\n")
-target.write(line2)
-target.write("\n")
-target.write(line3)
-target.write("\n")
+file_content = "%s\n%s\n%s\n" % (line1, line2, line2)
+target.write(file_content)
 
 print "And finally, close the file."
 target.close()
